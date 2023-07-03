@@ -26,6 +26,13 @@ brew create <url>
 
 Then, edit the generated formula file to add a description, update the homepage, and add a test.
 
+### Create sha
+
+```sh
+wget <file>
+shasum -a 256 <file>
+```
+
 ## License
 
 [MIT](LICENSE)

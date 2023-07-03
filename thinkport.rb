@@ -4,8 +4,8 @@
 class Thinkport < Formula
   desc ""
   homepage ""
-  url "https://github.com/vergissberlin/thinkport/releases/download/0.0.27/thinkport_Darwin_arm64.tar.gz"
-  sha256 "d07376af1eaf40ab4d61adde4534f37e0020fbe622a635ca2e19b6cfd5c945b8"
+  url "https://github.com/vergissberlin/thinkport/releases/download/0.0.30/thinkport_Darwin_arm64.tar.gz"
+  sha256 "ea9fbc5321e3dcf60cdae8790db69bbffabf7c73a06dcff4fea773c7d4a924ca"
   license ""
 
   # depends_on "cmake" => :build
