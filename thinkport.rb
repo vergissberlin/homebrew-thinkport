@@ -2,11 +2,11 @@
 #                https://rubydoc.brew.sh/Formula
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Thinkport < Formula
-  desc ""
-  homepage ""
+  desc "This cli tool provides a set of commands related to Thinkport. This is a technical experiement and not intended for production use."
+  homepage "https://github.com/vergissberlin/thinkport"
   url "https://github.com/vergissberlin/thinkport/releases/download/0.0.30/thinkport_Darwin_arm64.tar.gz"
-  sha256 "ea9fbc5321e3dcf60cdae8790db69bbffabf7c73a06dcff4fea773c7d4a924ca"
-  license ""
+  sha256 "d07376af1eaf40ab4d61adde4534f37e0020fbe622a635ca2e19b6cfd5c945b8"
+  license "MIT"
 
   # depends_on "cmake" => :build
 
