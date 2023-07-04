@@ -1,14 +1,22 @@
 # Documentation: 
 # https://docs.brew.sh/Formula-Cookbook
 # https://rubydoc.brew.sh/Formula
+# Example:
+# https://github.com/goreleaser/homebrew-tap/blob/master/Formula/goreleaser.rb
 
 class Thinkport < Formula
   desc "This cli tool provides a set of commands related to Thinkport. This is a technical experiement and not intended for production use."
   homepage "https://github.com/vergissberlin/thinkport"
   license "MIT"
   version "0.0.32"
+  revision 1
   depends_on "go" => :optional
-
+  
+  livecheck do
+    url "https://github.com/vergissberlin/thinkport/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+ 
  on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/vergissberlin/thinkport/releases/download/0.0.32/thinkport_Darwin_x86_64.tar.gz"
