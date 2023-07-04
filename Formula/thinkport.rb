@@ -5,21 +5,21 @@
 class Thinkport < Formula
   desc "This cli tool provides a set of commands related to Thinkport. This is a technical experiement and not intended for production use."
   homepage "https://github.com/vergissberlin/thinkport"
-  version "0.0.43"
+  version "0.0.44"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.43/thinkport_Darwin_x86_64.tar.gz"
-      sha256 "160c5fef3238d6051b3b95557ff5bbd399f367e7d9bd16d675d9452a77119f4f"
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.44/thinkport_Darwin_x86_64.tar.gz"
+      sha256 "732de0d132e5bf3588da2a731ae625c0e1d1e4620a604d2306581738feb3f658"
 
       def install
         bin.install "thinkport"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.43/thinkport_Darwin_arm64.tar.gz"
-      sha256 "d75842a63a2caf04462d35e359ae6521179beb8cf8fc4be47761a358d622da11"
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.44/thinkport_Darwin_arm64.tar.gz"
+      sha256 "6ac830715bd6ef8c22dbe719d980417f07c33b17f17d66ad73c09525d956de80"
 
       def install
         bin.install "thinkport"
@@ -29,16 +29,16 @@ class Thinkport < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.43/thinkport_Linux_arm64.tar.gz"
-      sha256 "06cc1e2b0f389bc54bf1302e09b915821560362017e3cfa5956f2fc408541abe"
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.44/thinkport_Linux_arm64.tar.gz"
+      sha256 "1e13578ab151866905c8d42ee22a0976640b99fd6886e3b5eec2bc67f5e7b5a6"
 
       def install
         bin.install "thinkport"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.43/thinkport_Linux_x86_64.tar.gz"
-      sha256 "87870c23f116cf8d052dafc0fe6546b3cc639ec7a7e7ebfc570fe66e7847e7c2"
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.44/thinkport_Linux_x86_64.tar.gz"
+      sha256 "d6d45175e2421e043c96951b2140802af4a4e3bd09c17b02e19a3f7186609b8b"
 
       def install
         bin.install "thinkport"
