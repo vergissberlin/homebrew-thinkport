@@ -35,7 +35,6 @@ class Thinkport < Formula
       end
     end
 
-    # Linux i386
     if Hardware::CPU.intel? && Hardware::CPU.is_32_bit?
         url "https://github.com/vergissberlin/thinkport/releases/download/0.0.31/thinkport_Linux_i386.tar.gz"
         sha256 "2179ceed52e94bb09907623c5df69b5b5b87e529e44c2f2586d4a5e64dfb5825"

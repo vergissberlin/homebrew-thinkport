@@ -1,6 +1,6 @@
-# Thinkport Homebrew Tap
+# Homebrew Tap of Vergissberlin
 
-This is a [Homebrew tap](https://docs.brew.sh/Taps) for Thinkport's open source projects.
+This is a [Homebrew tap](https://docs.brew.sh/Taps) for open source projects of vergissberlin.
 
 ## Usage
 
