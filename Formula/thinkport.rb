@@ -10,7 +10,7 @@ class Thinkport < Formula
   homepage "https://github.com/vergissberlin/thinkport"
   license "MIT"
   version "0.0.32"
-  revision 2
+  revision 3
 
   depends_on "go" => :optional
   
