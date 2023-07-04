@@ -26,8 +26,32 @@ class Thinkport < Formula
     end
   end
 
-  
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.31/thinkport_Linux_x86_64.tar.gz"
+      sha256 "54f4b402dc3d5dcc51504fd627d69ba79b1e62b40933cc6f0d0481c39c6d2a7a"
+      def install
+        bin.install "thinkport"
+      end
+    end
 
+    # Linux i386
+    if Hardware::CPU.intel? && Hardware::CPU.is_32_bit?
+        url "https://github.com/vergissberlin/thinkport/releases/download/0.0.31/thinkport_Linux_i386.tar.gz"
+        sha256 "2179ceed52e94bb09907623c5df69b5b5b87e529e44c2f2586d4a5e64dfb5825"
+        def install
+            bin.install "thinkport"
+        end
+    end
+
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.31/thinkport_Linux_arm64.tar.gz"
+      sha256 "00c2cb32489d32f711ffe8a407fe4f234546d09a61f48ecefac388ce052145f6"
+      def install
+        bin.install "thinkport"
+      end
+    end
+  end
 
 
  test do
