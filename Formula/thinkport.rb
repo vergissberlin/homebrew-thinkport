@@ -4,28 +4,57 @@
 # Example:
 # https://github.com/goreleaser/homebrew-tap/blob/master/Formula/goreleaser.rb
 
+
 class Thinkport < Formula
   desc "This cli tool provides a set of commands related to Thinkport. This is a technical experiement and not intended for production use."
   homepage "https://github.com/vergissberlin/thinkport"
   license "MIT"
   version "0.0.32"
   revision 2
+
   depends_on "go" => :optional
   
-  livecheck do
-    url :stable
-    regex(/^thinkport[._-]v?(\d+(?:\.\d+)+)$/i)
-    strategy :github_releases do |json, regex|
-      json.map do |release|
-        next if release["draft"] || release["prerelease"]
-  
-        match = json["tag_name"]&.match(regex)
-        next if match.blank?
-  
-        match[1]
-      end
+  # Checks for updates to the thinkport formula.
+  # 
+  # url : The URL to check for updates. Set to :stable to check the stable Homebrew tap.
+  # regex: A regular expression used to match version numbers in the content of url. 
+  #        Captures the version number.
+  # strategy :github_releases: A strategy that checks GitHub releases for new versions.
+  #        json: The JSON response from the GitHub API.
+  #        regex: The regular expression passed to the livecheck block.
+  #        Checks each release in the JSON response. Skips draft and prerelease releases.
+  #        match: A match of the regex against the tag_name of the release.
+  #        Returns the captured version number if a match is found, else returns nil.
+  #        Returns an array of version numbers found.
+API_URL = "https://api.github.com/repos/vergissberlin/thinkport/releases"
+
+# Cache for API response 
+$api_cache = {}
+
+livecheck do
+  url :stable
+  regex(/^thinkport[._-]v?(\d+(?:\.\d+)+)$/i)
+  strategy :github_releases do |json, regex|
+    # Check cache
+    if $api_cache.key?(API_URL)
+      json = $api_cache[API_URL]
+    else
+      # Make API call
+      json = JSON.parse(URI.open(API_URL).read)
+      # Add to cache
+      $api_cache[API_URL] = json
+    end
+
+    json.map do |release|
+      next if release["draft"] || release["prerelease"] 
+
+      match = json["tag_name"]&.match(regex)
+      next if match.blank?
+
+      match[1]
     end
   end
+end
  
 
  on_macos do
