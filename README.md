@@ -1,4 +1,4 @@
-# Homebrew Tap of Vergissberlin
+# Homebrew Tap of [vergissberlin](https://github.com/vergissberlin)
 
 This is a [Homebrew tap](https://docs.brew.sh/Taps) for open source projects of vergissberlin.
 
