@@ -10,7 +10,7 @@ class Thinkport < Formula
   homepage "https://github.com/vergissberlin/thinkport"
   license "MIT"
   version "0.0.32"
-  revision 3
+  revision 4
 
   depends_on "go" => :optional
   
@@ -86,6 +86,7 @@ end
   end
 
   def install
+    ohai "Installing thinkport CLI tool"
     bin.install "thinkport"
   end
 
