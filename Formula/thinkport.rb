@@ -9,14 +9,25 @@ class Thinkport < Formula
   homepage "https://github.com/vergissberlin/thinkport"
   license "MIT"
   version "0.0.32"
-  revision 1
+  revision 2
   depends_on "go" => :optional
   
   livecheck do
-    url "https://github.com/vergissberlin/thinkport/releases/latest"
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+    url :stable
+    regex(/^thinkport[._-]v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_releases do |json, regex|
+      json.map do |release|
+        next if release["draft"] || release["prerelease"]
+  
+        match = json["tag_name"]&.match(regex)
+        next if match.blank?
+  
+        match[1]
+      end
+    end
   end
  
+
  on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/vergissberlin/thinkport/releases/download/0.0.32/thinkport_Darwin_x86_64.tar.gz"
