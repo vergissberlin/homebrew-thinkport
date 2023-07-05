@@ -5,43 +5,59 @@
 class Thinkport < Formula
   desc "This cli tool provides a set of commands related to Thinkport. This is a technical experiement and not intended for production use."
   homepage "https://github.com/vergissberlin/thinkport"
-  version "0.0.48"
+  version "0.0.49"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.48/thinkport_Darwin_x86_64.tar.gz"
-      sha256 "18ffe39e9379e6cc1f7d95bfba41be79fc0719557e594f1169f1bc8a93d867d6"
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.49/thinkport_Darwin_x86_64.tar.gz"
+      sha256 "d4c6d477ab551083bc035816e2cac3ec6c46cd1d953ba8c50e2880056d8eeddd"
 
       def install
         bin.install "thinkport"
+        bash_completion.install "completions/thinkport.bash" => "thinkport"
+        zsh_completion.install "completions/thinkport.zsh" => "_thinkport"
+        fish_completion.install "completions/thinkport.fish"
+        man1.install "docs/thinkport-members.1"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.48/thinkport_Darwin_arm64.tar.gz"
-      sha256 "2f9dbec9db47ddcc561d18e58ab28dc4018540bb7bd68cda83e93148d778726c"
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.49/thinkport_Darwin_arm64.tar.gz"
+      sha256 "67ec3fa40e6a00884786b6877e54b61f8918dd26d619154502b453deeb4c2472"
 
       def install
         bin.install "thinkport"
+        bash_completion.install "completions/thinkport.bash" => "thinkport"
+        zsh_completion.install "completions/thinkport.zsh" => "_thinkport"
+        fish_completion.install "completions/thinkport.fish"
+        man1.install "docs/thinkport-members.1"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.48/thinkport_Linux_arm64.tar.gz"
-      sha256 "ee404e8bd145b78ff2f0d78fc1e9e08851b72fdedca6b7e0071aeb5eb9d4feee"
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.49/thinkport_Linux_arm64.tar.gz"
+      sha256 "a886bcbcfd90c0e3f19691441fb6b3008878c5e623efcb96fe036f7e60ec0e62"
 
       def install
         bin.install "thinkport"
+        bash_completion.install "completions/thinkport.bash" => "thinkport"
+        zsh_completion.install "completions/thinkport.zsh" => "_thinkport"
+        fish_completion.install "completions/thinkport.fish"
+        man1.install "docs/thinkport-members.1"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.48/thinkport_Linux_x86_64.tar.gz"
-      sha256 "c27ddacb71141cdaae5800ac0d26405e7ace56c1a9919c63da252f2ad79adb68"
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.49/thinkport_Linux_x86_64.tar.gz"
+      sha256 "cb0f4b4e1b155f8b1a35f62d940f3a49b40f7ce182b6203947775d7d3c0be528"
 
       def install
         bin.install "thinkport"
+        bash_completion.install "completions/thinkport.bash" => "thinkport"
+        zsh_completion.install "completions/thinkport.zsh" => "_thinkport"
+        fish_completion.install "completions/thinkport.fish"
+        man1.install "docs/thinkport-members.1"
       end
     end
   end
