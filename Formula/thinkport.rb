@@ -5,17 +5,29 @@
 class Thinkport < Formula
   desc "This cli tool provides a set of commands related to Thinkport. This is a technical experiement and not intended for production use."
   homepage "https://github.com/vergissberlin/thinkport"
-  version "0.0.74"
+  version "0.0.75"
   license "MIT"
-  depends_on :linux
 
-  on_arm do
-    if Hardware::CPU.is_64_bit?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.74/thinkport_linux_arm64.tar.gz"
-      sha256 "bb21020050dabdbc5d4df4f1c241db13e8f2c4e1e001fcca125a1e2755d108f0"
+  on_macos do
+    on_arm do
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.75/thinkport_darwin_arm64.tar.gz"
+      sha256 "d33652f757461ebe54152d7e6b3f353e2e84b129d966756f54ad429123d81b17"
 
       def install
         bin.install "thinkport"
+      end
+    end
+  end
+
+  on_linux do
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/vergissberlin/thinkport/releases/download/0.0.75/thinkport_linux_arm64.tar.gz"
+        sha256 "791e08083a76b5da731795e908f2b3864c9d21537d106095b15f1fa2220d7e3e"
+
+        def install
+          bin.install "thinkport"
+        end
       end
     end
   end
