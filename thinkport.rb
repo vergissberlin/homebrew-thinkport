@@ -5,14 +5,14 @@
 class Thinkport < Formula
   desc "This cli tool provides a set of commands related to Thinkport. This is a technical experiement and not intended for production use."
   homepage "https://github.com/vergissberlin/thinkport"
-  version "0.0.62"
+  version "0.0.64"
   license "MIT"
   depends_on :linux
 
   on_arm do
     if Hardware::CPU.is_64_bit?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.62/thinkport_Linux_arm64.tar.gz"
-      sha256 "2db5155d586027dc1b539feef203c0532f07824558f4aca835b888d9d6fb0d2c"
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.64/thinkport_linux_arm64.tar.gz"
+      sha256 "5cbaffdc1b05c5414dfab7d5f7e7ba74fde20add6c4bcbbc3090e8f7bc68e6a0"
 
       def install
         bin.install "thinkport"
@@ -22,11 +22,11 @@ class Thinkport < Formula
 
   def caveats
     <<~EOS
-      It uses a http client to collect the data. Internetconnection is required.
+      It uses a http client to collect the data. Internet connection is required.
     EOS
   end
 
   test do
-    system "#{bin}/thinkport -v"
+    system "#{bin}/thinkport", "--version"
   end
 end
