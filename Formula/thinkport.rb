@@ -5,40 +5,14 @@
 class Thinkport < Formula
   desc "This cli tool provides a set of commands related to Thinkport. This is a technical experiement and not intended for production use."
   homepage "https://github.com/vergissberlin/thinkport"
-  version "0.0.58"
+  version "0.0.74"
   license "MIT"
+  depends_on :linux
 
-  on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.58/thinkport_Darwin_arm64.tar.gz"
-      sha256 "e6da51aa938d77923f68859318ded3c888e5c45dc7c34ff659f0060c2b37a2e9"
-
-      def install
-        bin.install "thinkport"
-      end
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.58/thinkport_Darwin_x86_64.tar.gz"
-      sha256 "669ffbabcea9a4ebed1a0310c3270c7f5d96739f206a3f36a3755933add1f114"
-
-      def install
-        bin.install "thinkport"
-      end
-    end
-  end
-
-  on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.58/thinkport_Linux_x86_64.tar.gz"
-      sha256 "536299a8611b5ded0816b28c61f175f3121ac7e1715111fe12af759a6076ec24"
-
-      def install
-        bin.install "thinkport"
-      end
-    end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.58/thinkport_Linux_arm64.tar.gz"
-      sha256 "34ade1d76d4e69f753a5f4b12bdd8637c1681d1f92e06e6fa039db7c2b27a24f"
+  on_arm do
+    if Hardware::CPU.is_64_bit?
+      url "https://github.com/vergissberlin/thinkport/releases/download/0.0.74/thinkport_linux_arm64.tar.gz"
+      sha256 "bb21020050dabdbc5d4df4f1c241db13e8f2c4e1e001fcca125a1e2755d108f0"
 
       def install
         bin.install "thinkport"
@@ -48,11 +22,11 @@ class Thinkport < Formula
 
   def caveats
     <<~EOS
-      It uses a http client to collect the data. Internetconnection is required.
+      It uses a http client to collect the data. Internet connection is required.
     EOS
   end
 
   test do
-    system "#{bin}/thinkport -v"
+    system "#{bin}/thinkport", "--version"
   end
 end
